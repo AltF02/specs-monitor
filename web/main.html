@@ -1,0 +1,47 @@
+<html lang='en'>
+    <head>
+        <meta charset="UTF-8">
+        <title>Specs Monitor</title>
+        <script type="text/javascript" src=/eel.js></script>
+        <script type="text/javascript">
+
+            //  Calls the python function to get the cpu brand
+            eel.getCpuBrand() ((dataValue) => {
+                document.getElementById("cpuBrand").innerHTML=dataValue;
+            });
+
+            // Calls the python function to get the cpu core count
+            eel.getCpuCores() ((dataValue) => {
+                document.getElementById("cpuCores").innerHTML=dataValue;
+            });
+
+            // Calls the function to get the cpu thread count
+            eel.getCpuThreads() ((dataValue) => {
+                document.getElementById("cpuThreads").innerHTML=dataValue;
+            });
+
+            eel.getCpuFrequency() ((dataValue) => {
+                document.getElementById("cpuFrequency").innerHTML=dataValue
+            });
+        </script>
+        <style>
+            body {
+                color: black;
+                background-color: black;
+            }
+
+            .cpuRow {
+                color: white;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="cpuDiv">
+            <p class="cpuRow"><span id="cpuBrand"></span></p>
+            <p class="cpuRow">CPU Cores: <span id="cpuCores"></span></p>
+            <p class="cpuRow">CPU Threads: <span id="cpuThreads"></span></p>
+            <p class="cpuRow">CPU Frequency: <span id="cpuFrequency"></span></p>
+        </div>
+    </body>
+
+</html>
