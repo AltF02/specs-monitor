@@ -1,6 +1,6 @@
 body {
-    color: black;
-    background-color: black;
+    color: #bfc0c1;
+    background-color: #16161c;
 }
 
 .cpuRow {
@@ -8,5 +8,9 @@ body {
 }
 
 .ramRow {
+    color: white;
+}
+
+.fanRow {
     color: white;
 }

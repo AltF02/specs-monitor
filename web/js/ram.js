@@ -5,4 +5,5 @@ const ramClass = (method, id) => eel.ramClass(method) ((dataValue) => {
 
 document.addEventListener("DOMContentLoaded", function() {
     ramClass("size", 'ramSize')
+    ramClass("usage", "ramUsage")
 });

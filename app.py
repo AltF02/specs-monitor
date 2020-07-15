@@ -13,22 +13,21 @@ import utils # pylint: disable=import-error
 eel.init('web')
 
 
-
 class cpu:
 
     def __init__(self):
         self.info = cpuinfo.get_cpu_info()
 
-    def Brand(self):
+    def Brand(self) -> str:
         return self.info["brand_raw"].replace("(R)", "®")
 
-    def Cores(self):
+    def Cores(self) -> int:
         return psutil.cpu_count(logical=False)
 
-    def Threads(self):
+    def Threads(self) -> int:
         return psutil.cpu_count()
 
-    def Frequency(self):
+    def Frequency(self) -> str:
         return self.info["hz_actual_friendly"]
 
 class ram:
@@ -36,11 +35,30 @@ class ram:
     def Size(self):
         return round(psutil.virtual_memory().total / 1000000000, 2)
 
+    def Usage(self):
+        return psutil.virtual_memory().percent
+
+
+class fans:
+
+    def fansSpeedAndNames(self) -> dict:
+        fans = psutil.sensors_fans()
+        if not fans:
+            return "No fans found"
+
+        di = {}
+        for name, entries in fans.items():
+            for entry in entries:
+                di[entry.label or name] = entry.current
+            
+        print(di)
+        return di
 
 
 # Init all the classes
 Cpu = cpu()
 Ram = ram()
+Fans = fans()
 
 @eel.expose
 def cpuClass(method):
@@ -55,10 +73,20 @@ def cpuClass(method):
 @eel.expose
 def ramClass(method):
     i = {
-        "size": Ram.Size
+        "size": Ram.Size,
+        "usage": Ram.Usage
     }
 
     return i[method]()
+
+
+@eel.expose
+def fansClass(method):
+    i = {
+        "fanList": Fans.fansSpeedAndNames
+    }
+    return i[method]()
+
 
 def run():
     try:
