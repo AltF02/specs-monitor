@@ -7,6 +7,8 @@ import eel
 import cpuinfo
 import psutil
 
+import utils
+
 eel.init('web')
 
 info = cpuinfo.get_cpu_info()
@@ -28,6 +30,19 @@ def getCpuThreads():
 def getCpuFrequency():
     return info["hz_actual_friendly"]
 
-eel.start('main.html', port=2132)
-while True:
-    eel.sleep(10)
+def run():
+    try:
+        chrome_available = utils.can_use_chrome()
+        if chrome_available:
+            eel.start('main.html', size=(650, 650), port=0)
+        else:
+            eel.start('index.html', size=(650, 650), port=0, mode='user default')
+    except Exception as e:
+        raise e
+        return
+
+    while True:
+        eel.sleep(10)
+
+if __name__ == '__main__':
+    run()
