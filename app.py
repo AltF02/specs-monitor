@@ -11,7 +11,7 @@ eel.init('web')
 
 info = cpuinfo.get_cpu_info()
 
-# Gets the cpu brand
+# All this just basically gets cpu info
 @eel.expose
 def getCpuBrand():
     return info["brand_raw"].replace("(R)", "®")
@@ -28,6 +28,6 @@ def getCpuThreads():
 def getCpuFrequency():
     return info["hz_actual_friendly"]
 
-eel.start('main.html')
+eel.start('main.html', port=2132)
 while True:
     eel.sleep(10)
