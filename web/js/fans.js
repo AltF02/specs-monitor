@@ -7,7 +7,7 @@ const fanList = () => fans = eel.fansClass("fanList") ((dataValue) => {
             document.getElementById("fansDiv").appendChild(para);
         }
     }
-})
+});
 
 document.addEventListener("DOMContentLoaded", function() {
     fanList()

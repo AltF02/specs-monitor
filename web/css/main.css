@@ -1,8 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
 body {
+    font-family: 'Roboto', sans-serif;
     color: #bfc0c1;
     background-color: #16161c;
 }
 
+div {
+    margin: 0 auto;
+    padding: 0px;
+    border-radius: 15px;
+    border: 2px solid white;
+    width: 95vw;
+    height: auto;
+}
+
+p {
+    padding-left: 4vh;
+}
+
+h1 {
+    font-size: large;
+    padding-left: 2vh;
+}
 .cpuRow {
     color: white;
 }

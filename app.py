@@ -51,7 +51,6 @@ class fans:
             for entry in entries:
                 di[entry.label or name] = entry.current
             
-        print(di)
         return di
 
 

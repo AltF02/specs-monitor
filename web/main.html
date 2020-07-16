@@ -2,24 +2,29 @@
     <head>
         <meta charset="UTF-8">
         <title>Specs Monitor</title>
-        <script type="text/javascript" src=/eel.js></script>
         <link rel="stylesheet" href="/css/main.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
         <script type="text/javascript" src="/js/ram.js"></script>
         <script type="text/javascript" src="/js/cpu.js"></script>
         <script type="text/javascript" src="/js/fans.js"></script>
+        <script type="text/javascript" src=/eel.js></script>
     </head>
     <body>
         <div class="cpuDiv">
+            <h1>CPU Info</h1>
             <p class="cpuRow"><span id="cpuBrand"></span></p>
             <p class="cpuRow">CPU Cores: <span id="cpuCores"></span></p>
             <p class="cpuRow">CPU Threads: <span id="cpuThreads"></span></p>
             <p class="cpuRow">CPU Frequency: <span id="cpuFrequency"></span></p>
         </div>
         <div class="ramDiv">
+            <h1>RAM Info</h1>
             <p class="ramRow">Total RAM: <span id="ramSize"></span> GB</p>
             <p class="ramRow">Total Usage: <span id="ramUsage"></span>%</p>
         </div>
-        <div id="fansDiv"></div>
+        <div id="fansDiv">
+            <h1>FAN Info</h1>
+        </div>
     </body>
 
 </html>
