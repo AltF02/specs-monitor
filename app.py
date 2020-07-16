@@ -8,6 +8,8 @@ import eel
 import cpuinfo
 import psutil
 
+from typing import Union
+
 import utils # pylint: disable=import-error
 
 eel.init('web')
@@ -32,16 +34,16 @@ class cpu:
 
 class ram:
 
-    def Size(self):
+    def Size(self) -> float:
         return round(psutil.virtual_memory().total / 1000000000, 2)
 
-    def Usage(self):
+    def Usage(self) -> str:
         return psutil.virtual_memory().percent
 
 
 class fans:
 
-    def fansSpeedAndNames(self) -> dict:
+    def fansSpeedAndNames(self) -> Union[dict, str]:
         fans = psutil.sensors_fans()
         if not fans:
             return "No fans found"
@@ -51,7 +53,21 @@ class fans:
             for entry in entries:
                 di[entry.label or name] = entry.current
             
-        return di
+        return "No fans found"
+
+
+class temps:
+
+    def getAllTemps(self) -> Union[dict, str]:
+        temps = psutil.sensors_temperatures()
+        if not temps:
+            return "can't read any temperature"
+        
+        di = {}
+        for name, entries in temps:
+            di.update({name: {}})
+            for entry in entries:
+                di.update({})
 
 
 # Init all the classes

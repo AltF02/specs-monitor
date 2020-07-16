@@ -2,28 +2,40 @@
     <head>
         <meta charset="UTF-8">
         <title>Specs Monitor</title>
+        <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
+        <link rel="manifest" href="/static/site.webmanifest">
+        <link rel="mask-icon" href="/static/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
         <link rel="stylesheet" href="/css/main.css">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
         <script type="text/javascript" src="/js/ram.js"></script>
         <script type="text/javascript" src="/js/cpu.js"></script>
         <script type="text/javascript" src="/js/fans.js"></script>
         <script type="text/javascript" src=/eel.js></script>
     </head>
     <body>
-        <div class="cpuDiv">
+        <div class="componentDiv cpuDiv">
             <h1>CPU Info</h1>
             <p class="cpuRow"><span id="cpuBrand"></span></p>
             <p class="cpuRow">CPU Cores: <span id="cpuCores"></span></p>
             <p class="cpuRow">CPU Threads: <span id="cpuThreads"></span></p>
             <p class="cpuRow">CPU Frequency: <span id="cpuFrequency"></span></p>
         </div>
-        <div class="ramDiv">
+        <div class="spacer"></div>
+        <div class="componentDiv ramDiv">
             <h1>RAM Info</h1>
             <p class="ramRow">Total RAM: <span id="ramSize"></span> GB</p>
             <p class="ramRow">Total Usage: <span id="ramUsage"></span>%</p>
         </div>
-        <div id="fansDiv">
+        <div class="spacer"></div>
+        <div class="componentDiv fansDiv" id="fansDiv">
             <h1>FAN Info</h1>
+        </div>
+        <div class="spacer"></div>
+        <div class="componentDiv tempDiv" id="tempsDiv">
+            <h1>Temperatures</h1>
         </div>
     </body>
 

@@ -7,13 +7,19 @@ body {
     background-color: #16161c;
 }
 
-div {
+.componentDiv {
     margin: 0 auto;
     padding: 0px;
     border-radius: 15px;
     border: 2px solid white;
     width: 95vw;
     height: auto;
+    float: middle;
+}
+
+div:not(:last-child):not(:first-child) {
+    padding-top: 10px;
+    padding-bottom: 0px;
 }
 
 p {
@@ -24,6 +30,8 @@ h1 {
     font-size: large;
     padding-left: 2vh;
 }
+
+
 .cpuRow {
     color: white;
 }
