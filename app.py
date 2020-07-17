@@ -62,12 +62,12 @@ class temps:
         temps = psutil.sensors_temperatures()
         if not temps:
             return "can't read any temperature"
-        
+"""        
         di = {}
         for name, entries in temps:
             di.update({name: {}})
             for entry in entries:
-                di.update({})
+                di.update({})"""
 
 
 # Init all the classes
