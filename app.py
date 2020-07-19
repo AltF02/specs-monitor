@@ -10,7 +10,7 @@ import psutil
 
 from typing import Union
 
-import utils # pylint: disable=import-error
+import utils
 
 eel.init('web')
 
